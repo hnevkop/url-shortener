@@ -42,3 +42,6 @@ These instructions will get you a copy of the project up and running on your loc
 3. Run the frontend. NOTE: it uses the default port 3000. In order to install NPM packages (from the frontend directory) and start
    npm install
    npm start
+
+## Project Status:
+[![Java CI with Gradle](https://github.com/hnevkop/url-shortener/actions/workflows/gradle.yml/badge.svg)](https://github.com/hnevkop/url-shortener/actions/workflows/gradle.yml)
