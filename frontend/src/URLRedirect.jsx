@@ -15,24 +15,25 @@ class URLRedirect extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-
         const response = await fetch('/api/urls/'+this.state.value);
-        const content = await response.body.text();
+        const content = await response.text();
 
-        window.location.href = "http://"+content;
+        this.setState({ originalUrl: content });
     }
 
     render() {
-        return <div>
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Short URL:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Go!" />
-            </form>
-            <div>If redirected, browser will go to original URL</div>
-        </div>;
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Short URL code:
+                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Resolve!" />
+                </form>
+                {this.state.originalUrl && <div>Original URL: {this.state.originalUrl}</div>}
+            </div>
+        );
     }
 }
 

@@ -19,7 +19,7 @@ class URLInput extends React.Component {
         const response = await fetch('/api/urls', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ originalUrl: this.state.value })
+            body: JSON.stringify({ url: this.state.value })
         });
         const content = await response.text();
 
@@ -35,7 +35,7 @@ class URLInput extends React.Component {
                 </label>
                 <input type="submit" value="Shorten!" />
             </form>
-            <div>Short URL: {this.state.shortUrl}</div>
+            <div>Short URL code: {this.state.shortUrl}</div>
         </div>;
     }
 }
